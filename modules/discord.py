@@ -35,6 +35,7 @@ def get_token(code):
         'Content-Type': 'application/x-www-form-urlencoded'
     }
     r = requests.post("https://discord.com/api/oauth2/token", data=data, headers=headers)
+    print(r.json())
     r.raise_for_status()
     return r.json()
 
