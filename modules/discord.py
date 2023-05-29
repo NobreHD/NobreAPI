@@ -1,6 +1,6 @@
 from flask import request, redirect, jsonify
 from dotenv import load_dotenv
-import requests, os
+import requests, os, urllib.parse
 
 load_dotenv()
 
