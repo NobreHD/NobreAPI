@@ -12,6 +12,3 @@ def import_modules():
 app = Flask(__name__)
 
 import_modules()
-
-def start():
-    app.run(host='0.0.0.0', port=8443)
