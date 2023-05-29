@@ -8,18 +8,19 @@ CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 
 count = 0
+count_file = "data/count.txt"
 
 def get_count():
     global count
     if count == 0:
-        with open("count.txt", "r") as f:
+        with open(count_file, "r") as f:
             count = int(f.read())
     return count
 
 def add():
     global count
     count-=-1
-    with open("count.txt", "w") as f:
+    with open(count_file, "w") as f:
         f.write(str(count))
 
 def get_token(code):
