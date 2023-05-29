@@ -2,11 +2,6 @@ from flask import Flask
 from importlib import import_module
 import os
 
-@app.after_request
-def add_cors_headers(response):
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    return response
-
 def import_modules(app):
     modules_dir = os.path.join(os.path.dirname(__file__), 'modules')
     for module_file in os.listdir(modules_dir):
@@ -17,4 +12,10 @@ def import_modules(app):
             print(f'Imported module: {module_name}')
 
 app = Flask(__name__)
+
+@app.after_request
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+
 import_modules(app)
