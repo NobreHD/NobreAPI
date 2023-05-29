@@ -29,7 +29,7 @@ def get_token(code):
         'client_secret': CLIENT_SECRET,
         'code': code,
         'grant_type': 'authorization_code',
-        'redirect_uri': REDIRECT_URI+'/auth',
+        'redirect_uri': 'https://api.nobrehd.pt/discord/auth',
     }
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded'
