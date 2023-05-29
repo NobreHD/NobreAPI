@@ -38,6 +38,17 @@ def get_token(code):
     r.raise_for_status()
     return r.json()
 
+def revoke_token(access_token):
+    data = {
+        'client_id': CLIENT_ID,
+        'client_secret': CLIENT_SECRET,
+        'token': access_token,
+    }
+    headers = {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    }
+    requests.post("https://discord.com/api/oauth2/token/revoke", data=data, headers=headers)
+
 def set_header(access_token, token_type):
     return {
         "Authorization": f"{token_type} {access_token}"
@@ -55,6 +66,7 @@ def discord():
     user_info = requests.get("https://discord.com/api/users/@me", headers=header).json()
     nitro = user_info['premium_type'] == 2
     name = urllib.parse.quote(user_info['username'] + "#" + user_info['discriminator'])
+    revoke_token(token['access_token'])
     add()
     return redirect(f"https://server-count.nobrehd.pt/?server_count={server_count}&nitro={nitro}&user={name}")
 
