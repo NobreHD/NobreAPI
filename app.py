@@ -1,14 +1,15 @@
 from flask import Flask
+from importlib import import_module
 import os
 
-def import_modules():
-    for module in os.listdir(os.path.dirname(__file__)+"/modules"):
-        if module == '__init__.py' or module[-3:] != '.py':
-            continue
-        imp_mod = __import__(f"modules.{module[:-3]}", fromlist=['setup'])
-        imp_mod.setup(app)
-        print(f"Imported {module[:-3]}")
+def import_modules(app):
+    modules_dir = os.path.join(os.path.dirname(__file__), 'modules')
+    for module_file in os.listdir(modules_dir):
+        if module_file.endswith('.py') and module_file != '__init__.py':
+            module_name = module_file[:-3]
+            module = import_module(f'modules.{module_name}')
+            module.setup(app)
+            print(f'Imported module: {module_name}')
 
 app = Flask(__name__)
-
-import_modules()
+import_modules(app)
