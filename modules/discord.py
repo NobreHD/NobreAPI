@@ -4,8 +4,8 @@ import requests, os
 
 load_dotenv()
 
-CLIENT_ID = os.getenv('CLIENT_ID')
-CLIENT_SECRET = os.getenv('CLIENT_SECRET')
+CLIENT_ID = os.getenv('DISCORD_CLIENT_ID')
+CLIENT_SECRET = os.getenv('DISCORD_CLIENT_SECRET')
 
 count = 0
 count_file = "data/count.txt"
@@ -35,7 +35,6 @@ def get_token(code):
         'Content-Type': 'application/x-www-form-urlencoded'
     }
     r = requests.post("https://discord.com/api/oauth2/token", data=data, headers=headers)
-    print(r.json())
     r.raise_for_status()
     return r.json()
 
