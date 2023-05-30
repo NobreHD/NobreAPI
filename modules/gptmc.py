@@ -10,6 +10,7 @@ def gptmc():
     }
     with open(data_file, "r") as f:
         data["training_data"] = json.loads(f.read())
+    data["count"] = len(data["training_data"])
     return jsonify(data)
 
 def setup(app):
