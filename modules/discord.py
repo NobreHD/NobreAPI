@@ -65,7 +65,7 @@ def discord():
     server_count = get_server_count(header)
     user_info = requests.get("https://discord.com/api/users/@me", headers=header).json()
     nitro = user_info['premium_type'] == 2
-    name = urllib.parse.quote(user_info['username'] + "#" + user_info['discriminator'])
+    name = urllib.parse.quote(user_info['username'] + ("#" + user_info['discriminator'] if user_info['discriminator'] != "0" else ""))
     revoke_token(token['access_token'])
     add()
     return redirect(f"https://server-count.nobrehd.pt/?server_count={server_count}&nitro={nitro}&user={name}")
