@@ -76,4 +76,5 @@ def send_count():
 def setup(app):
     app.add_url_rule('/discord/auth', 'discord', discord)
     app.add_url_rule('/discord/count', 'send_count', send_count)
+    count = get_count()
     print("Discord Routes Loaded")
