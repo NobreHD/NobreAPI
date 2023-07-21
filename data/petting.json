@@ -1,0 +1,57 @@
+{
+    "dogs_named": [
+      "*{name} starts wagging its tail*",
+      "Come here, {name}, let's go for a walk!",
+      "Such a loyal companion, {name}.",
+      "I love you so much, {name}, you're the best.",
+      "You're looking so adorable today, {name}.",
+      "There's my little tail-wagger, {name}, always bringing joy.",
+      "You're a bundle of energy, {name}, and I love it.",
+      "Nobody can resist those puppy eyes, {name}.",
+      "That's it, {name}, enjoy the belly rubs!",
+      "Who needs a personal trainer when I have you, {name}? Let's play fetch!"
+    ],
+    "dogs": [
+      "Who is the cutest doggo?",
+      "Good boy",
+      "Who's a good boy?",
+      "You're such a cute pupper!",
+      "Such a sweet and loyal doggie!",
+      "I love you, my furry friend.",
+      "Wagging that tail, are we?",
+      "You're the best dog ever.",
+      "I could pet you all day!",
+      "You're so cute when you tilt your head.",
+      "You always know how to brighten my day.",
+      "Let's go for a walk, shall we?"
+    ],
+    "cats_named": [
+      "Pss pss pss, {name} come here",
+      "Oh, {name}, you're the best kitty in the world!",
+      "Who's a clever cat? You are, {name}!",
+      "Come here, {name}, let's have some cuddle time.",
+      "I love how you purr, {name}, it's so soothing.",
+      "You're looking so majestic today, {name}.",
+      "There's my little hunter, {name}, all cozy and content.",
+      "You're a bundle of joy, {name}, always brightening my day.",
+      "Nobody can resist your charm, {name}.",
+      "That's it, {name}, right there, that's your favorite spot!",
+      "Who needs a therapist when I have you, {name}? You're the best listener."
+    ],
+    "cats": [
+      "Here, kitty, kitty",
+      "Heya pretty kitty",
+      "Sooo ferocious OwO",
+      "Who's a good kitty?",
+      "You're so soft and fluffy!",
+      "Such a sweet little furball!",
+      "I love you, my little whisker buddy.",
+      "Purr, purr, purr... you're happy, aren't you?",
+      "That's it, right behind the ears, isn't it?",
+      "You're the best cat ever.",
+      "I could pet you all day!",
+      "You're so cute when you stretch like that.",
+      "You always know how to make me feel better."
+    ]
+  }
+  
