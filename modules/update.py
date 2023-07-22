@@ -1,16 +1,14 @@
 from flask import request, jsonify
 from dotenv import load_dotenv
 from threading import Thread
-import os, hmac, hashlib
+import os, hmac, hashlib, time
 
 load_dotenv()
 
 SECRET = os.getenv('GITHUB_WEBHOOK_SECRET')
 
 def update_thread():
-    os.system("git pull")
-    
-    # Restart the server
+    time.sleep(2)
     os.system("pm2 restart nobrehd-api")
 
 def update():
