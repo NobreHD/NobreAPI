@@ -1,10 +1,17 @@
 from flask import request, jsonify
 from dotenv import load_dotenv
-import os, sys, hmac, hashlib
+from threading import Thread
+import os, hmac, hashlib
 
 load_dotenv()
 
 SECRET = os.getenv('GITHUB_WEBHOOK_SECRET')
+
+def update_thread():
+    os.system("git pull")
+    
+    # Restart the server
+    os.system("pm2 restart nobrehd-api")
 
 def update():
     signature = request.headers.get('x-hub-signature-256')
@@ -23,8 +30,9 @@ def update():
     if event != "push":
         return "Invalid event", 403
     
-    os.system("git pull")
-    sys.exit(1)
+    # Start a new thread to not block the main thread
+    Thread(target=update_thread).start()
+    return "OK", 200
     
 def setup(app):
     app.add_url_rule('/update', 'update', update, methods=['POST'])
