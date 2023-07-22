@@ -1,6 +1,5 @@
 {
     "dogs_named": [
-      "*{name} starts wagging its tail*",
       "Come here, {name}, let's go for a walk!",
       "Such a loyal companion, {name}.",
       "I love you so much, {name}, you're the best.",
