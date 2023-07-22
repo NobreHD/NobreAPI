@@ -28,7 +28,6 @@ def update():
     if event != "push":
         return "Invalid event", 403
     
-    # Start a new thread to not block the main thread
     Thread(target=update_thread).start()
     return "OK", 200
     
