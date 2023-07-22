@@ -9,7 +9,7 @@ SECRET = os.getenv('GITHUB_WEBHOOK_SECRET')
 
 def update_thread():
     time.sleep(2)
-    os.system("pm2 restart nobrehd-api")
+    os.system("pm2 restart nobreapi")
 
 def update():
     signature = request.headers.get('x-hub-signature-256')
