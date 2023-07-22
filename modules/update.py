@@ -30,7 +30,11 @@ def update():
     
     Thread(target=update_thread).start()
     return "OK", 200
+
+def test():
+    return jsonify({"msg": "test"})
     
 def setup(app):
     app.add_url_rule('/update', 'update', update, methods=['POST'])
+    app.add_url_rule('/test', 'test', test, methods=['GET'])
     print("Update Routes Loaded")
