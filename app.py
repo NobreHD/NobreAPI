@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect
 from importlib import import_module
 import os
 
@@ -15,6 +15,10 @@ app = Flask(__name__)
 @app.route('/robots.txt')
 def robots():
     return 'User-agent: *\nDisallow: /'
+
+@app.route('/')
+def index():
+    return redirect("https://github.com/NobreHD/NobreAPI")
 
 @app.after_request
 def add_cors_headers(response):

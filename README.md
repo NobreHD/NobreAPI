@@ -1,3 +1,3 @@
 # NobreAPI
 
-API for my static webpages
+Basic API for my personal projects.
