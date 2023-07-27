@@ -60,7 +60,10 @@ def get_server_count(header):
 
 def discord():
     code = request.args.get('code')
-    token = get_token(code)
+    try:
+        token = get_token(code)
+    except:
+        return "Invalid Token", 400
     header = set_header(token['access_token'], token['token_type'])
     server_count = get_server_count(header)
     user_info = requests.get("https://discord.com/api/users/@me", headers=header).json()

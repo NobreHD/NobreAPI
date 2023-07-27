@@ -13,6 +13,10 @@ def import_modules(app):
 
 app = Flask(__name__)
 
+@app.route('/robots.txt')
+def robots():
+    return 'User-agent: *\nDisallow: /'
+
 @app.after_request
 def add_cors_headers(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
