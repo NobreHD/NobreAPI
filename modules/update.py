@@ -11,7 +11,6 @@ def update_thread():
     time.sleep(2)
     os.system("git pull")
     os.system("sudo systemctl kill -s HUP NobreAPI.service")
-    # test
 
 def update():
     signature = request.headers.get('x-hub-signature-256')
