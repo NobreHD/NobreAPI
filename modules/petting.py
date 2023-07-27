@@ -15,6 +15,8 @@ def petting():
 
 def setup(app):
     app.add_url_rule('/petting', 'petting', petting, methods=['GET'])
+    with open(file, "r") as f:
+        saved = json.loads(f.read())
     print("Petting Routes Loaded")
 
 
