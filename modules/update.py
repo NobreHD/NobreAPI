@@ -10,7 +10,7 @@ SECRET = os.getenv('GITHUB_WEBHOOK_SECRET')
 def update_thread():
     time.sleep(2)
     os.system("git pull")
-    os.system("sudo systemctl kill -s HUP NobreAPI.service")
+    os.system("sudo systemctl restart NobreAPI.service")
 
 def update():
     signature = request.headers.get('x-hub-signature-256')
