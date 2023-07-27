@@ -9,7 +9,6 @@ def import_modules(app):
             module_name = module_file[:-3]
             module = import_module(f'modules.{module_name}')
             module.setup(app)
-            print(f'Imported module: {module_name}')
 
 app = Flask(__name__)
 
