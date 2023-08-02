@@ -1,14 +1,14 @@
 {
     "dogs_named": [
-      "Come here, {name}, let's go for a walk!",
-      "Such a loyal companion, {name}.",
-      "I love you so much, {name}, you're the best.",
-      "You're looking so adorable today, {name}.",
-      "There's my little tail-wagger, {name}, always bringing joy.",
-      "You're a bundle of energy, {name}, and I love it.",
-      "Nobody can resist those puppy eyes, {name}.",
-      "That's it, {name}, enjoy the belly rubs!",
-      "Who needs a personal trainer when I have you, {name}? Let's play fetch!"
+      "Come here, <name>, let's go for a walk!",
+      "Such a loyal companion, <name>.",
+      "I love you so much, <name>, you're the best.",
+      "You're looking so adorable today, <name>.",
+      "There's my little tail-wagger, <name>, always bringing joy.",
+      "You're a bundle of energy, <name>, and I love it.",
+      "Nobody can resist those puppy eyes, <name>.",
+      "That's it, <name>, enjoy the belly rubs!",
+      "Who needs a personal trainer when I have you, <name>? Let's play fetch!"
     ],
     "dogs": [
       "Who is the cutest doggo?",
@@ -24,17 +24,17 @@
       "Let's go for a walk, shall we?"
     ],
     "cats_named": [
-      "Pss pss pss, {name} come here",
-      "Oh, {name}, you're the best kitty in the world!",
-      "Who's a clever cat? You are, {name}!",
-      "Come here, {name}, let's have some cuddle time.",
-      "I love how you purr, {name}, it's so soothing.",
-      "You're looking so majestic today, {name}.",
-      "There's my little hunter, {name}, all cozy and content.",
-      "You're a bundle of joy, {name}, always brightening my day.",
-      "Nobody can resist your charm, {name}.",
-      "That's it, {name}, right there, that's your favorite spot!",
-      "Who needs a therapist when I have you, {name}? You're the best listener."
+      "Pss pss pss, <name> come here",
+      "Oh, <name>, you're the best kitty in the world!",
+      "Who's a clever cat? You are, <name>!",
+      "Come here, <name>, let's have some cuddle time.",
+      "I love how you purr, <name>, it's so soothing.",
+      "You're looking so majestic today, <name>.",
+      "There's my little hunter, <name>, all cozy and content.",
+      "You're a bundle of joy, <name>, always brightening my day.",
+      "Nobody can resist your charm, <name>.",
+      "That's it, <name>, right there, that's your favorite spot!",
+      "Who needs a therapist when I have you, <name>? You're the best listener."
     ],
     "cats": [
       "Here, kitty, kitty",
