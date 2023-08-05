@@ -20,7 +20,7 @@ def get_post(post_id):
 
 def get_tag_count(tag):
     r = scrape.get(f'https://rule34.xxx/public/autocomplete.php?q={tag}')
-    return int(r.json()['label'].split(' ')[-1][1:-1])
+    return int(r.json()[0]['label'].split(' ')[-1][1:-1])
 
 def get_game_entry():
     id = get_random_post()
