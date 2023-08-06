@@ -6,7 +6,7 @@ scrape = cloudscraper.create_scraper()
 
 def get_random_post():
     r = scrape.get("https://rule34.xxx/index.php?page=post&s=random")
-    return parse_qs(urlparse(r.url).query)["id"][0]
+    return int(parse_qs(urlparse(r.url).query)["id"][0])
 
 def get_post(post_id):
     r = scrape.get(f'https://rule34.xxx/index.php?page=dapi&s=post&q=index&id={post_id}&json=1')
@@ -23,9 +23,11 @@ def get_tag_count(tag):
     return int(r.json()[0]['label'].split(' ')[-1][1:-1])
 
 def get_game_entry():
-    prev = request.args.get('prev') or ''
+    vstag = request.args.get('vstag') or ''
+    vsid = request.args.get('vsid') or 0
     while True:
         id = get_random_post()
+        if id == vsid: continue
         post = get_post(id)
         tag = ''
         for i in range(10):
