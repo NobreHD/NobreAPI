@@ -32,7 +32,7 @@ def get_game_entry():
         tag = ''
         for i in range(10):
             tag = random.choice(post['tags'])
-            if tag != prev: break
+            if tag != vstag: break
         count = get_tag_count(tag)
         return jsonify({
             'id': id,
