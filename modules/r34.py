@@ -24,16 +24,20 @@ def get_tag_count(tag):
     return int(r.json()[0]['label'].split(' ')[-1][1:-1])
 
 def get_game_entry():
-    vstag = request.args.get('vstag') or ''
-    vsid = request.args.get('vsid') or 0
+    vstag = []
+    vsid = []
+    if request.method == 'POST':
+        data = request.get_json()
+        vstag = data['tags']
+        vsid = data['ids']
     while True:
         id = get_random_post()
-        if id == vsid: continue
+        if id in vsid: continue
         post = get_post(id)
         tag = ''
         for i in range(10):
             tag = random.choice(post['tags'])
-            if tag != vstag: break
+            if tag not in vstag: break
         count = get_tag_count(tag)
         return jsonify({
             'id': id,
@@ -45,5 +49,5 @@ def get_game_entry():
         })
 
 def setup(app):
-    app.add_url_rule('/r34', 'r34', get_game_entry, methods=['GET'])
+    app.add_url_rule('/r34', 'r34', get_game_entry, methods=['GET', 'POST'])
     print("Rule34 Routes Loaded")
