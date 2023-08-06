@@ -11,10 +11,13 @@ def get_random_post():
 def get_post(post_id):
     r = scrape.get(f'https://rule34.xxx/index.php?page=dapi&s=post&q=index&id={post_id}&json=1')
     data = r.json()[0]
+    source = data['source'].split(' ')
+    if len(source) == 1 and source[0] == '':
+        source = []
     return {
         'image': data['sample_url'],
         'tags': data['tags'].split(' '),
-        'source': data['source'].split(' '),
+        'source': source,
         'url': f'https://rule34.xxx/index.php?page=post&s=view&id={post_id}'
     }
 
