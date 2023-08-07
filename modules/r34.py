@@ -26,7 +26,7 @@ def get_tag_count(tag):
 
 def get_game_entry():
     req_time = time.time()
-    if log.has_key(req_time):
+    if log.get(req_time) != None:
         log[req_time] += 1
     else:
         log[req_time] = 1
