@@ -31,7 +31,7 @@ def get_game_entry():
     else:
         log[req_time] = 1
     while list(log.keys())[0] < req_time - 60:
-        del log[log.keys()[0]]
+        del log[list(log.keys())[0]]
     
     vstag = []
     vsid = []
