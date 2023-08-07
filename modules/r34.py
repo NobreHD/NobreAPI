@@ -30,7 +30,7 @@ def get_game_entry():
         log[req_time] += 1
     else:
         log[req_time] = 1
-    while log.keys()[0] < req_time - 60:
+    while list(log.keys())[0] < req_time - 60:
         del log[log.keys()[0]]
     
     vstag = []
