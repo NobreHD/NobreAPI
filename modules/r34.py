@@ -1,8 +1,9 @@
 from urllib.parse import urlparse, parse_qs
 from flask import jsonify, request
-import random, requests, cloudscraper,validators
+import random, requests, cloudscraper,validators, time
 
 scrape = cloudscraper.create_scraper()
+log = {}
 
 def get_random_post():
     r = scrape.get("https://rule34.xxx/index.php?page=post&s=random")
@@ -24,6 +25,14 @@ def get_tag_count(tag):
     return int(r.json()[0]['label'].split(' ')[-1][1:-1])
 
 def get_game_entry():
+    req_time = time.time()
+    if log.has_key(req_time):
+        log[req_time] += 1
+    else:
+        log[req_time] = 1
+    while log.keys()[0] < req_time - 60:
+        del log[log.keys()[0]]
+    
     vstag = []
     vsid = []
     if request.method == 'POST':
@@ -47,7 +56,16 @@ def get_game_entry():
             'source': post['source'],
             'url': post['url']
         })
+    
+def get_current_requests():
+    rq = 0
+    for i in log:
+        rq += log[i]
+    return jsonify({
+        'requests': rq
+    })
 
 def setup(app):
     app.add_url_rule('/r34', 'r34', get_game_entry, methods=['GET', 'POST'])
+    app.add_url_rule('/r34/requests', 'r34_requests', get_current_requests, methods=['GET'])
     print("Rule34 Routes Loaded")
