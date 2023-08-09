@@ -50,7 +50,7 @@ def get_game_entry():
         id = get_random_post()
         if id in vsid: continue
         post = try_repeat(get_post, [id], 10)
-        if post.get['tags'] == None: continue
+        if post.get('tags') == None: continue
         tag = ''
         for i in range(10):
             tag = random.choice(post['tags'])
