@@ -37,8 +37,8 @@ def get_game_entry():
     vsid = []
     if request.method == 'POST':
         data = request.get_json()
-        vstag = data['tags'] if data['tags'] != None else []
-        vsid = data['ids'] if data['ids'] != None else []
+        vstag = data['tags'] if data.get('tags') != None else []
+        vsid = data['ids'] if data.get('ids') != None else []
     while True:
         id = get_random_post()
         if id in vsid: continue
