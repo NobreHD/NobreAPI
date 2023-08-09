@@ -47,7 +47,14 @@ def get_game_entry():
         for i in range(10):
             tag = random.choice(post['tags'])
             if tag not in vstag: break
-        count = get_tag_count(tag)
+        count = 0
+        for i in range(10):
+            try:
+                count = get_tag_count(tag)
+                break
+            except:
+                print(f"Error getting tag '${tag}' count, retrying...")
+                
         return jsonify({
             'id': id,
             'tag': tag,
