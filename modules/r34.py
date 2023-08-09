@@ -59,13 +59,9 @@ def get_game_entry():
     
 def get_current_requests():
     rq = 0
-    try:
-        while list(log.keys())[0] < req_time - 60:
-            del log[list(log.keys())[0]]
-        for i in log:
+    for i in log:
+        if i > time.time() - 60:
             rq += log[i]
-    except:
-        pass
     return jsonify({
         'requests': rq
     })
