@@ -24,6 +24,13 @@ def get_tag_count(tag):
     r = scrape.get(f'https://rule34.xxx/public/autocomplete.php?q={tag}')
     return int(r.json()[0]['label'].split(' ')[-1][1:-1])
 
+def try_repeat(func, args, times):
+    for i in range(times):
+        try:
+            return func(*args)
+        except:
+            print(f"Error executing function '${func.__name__}', retrying...")
+
 def get_game_entry():
     req_time = time.time()
     if log.get(req_time) != None:
@@ -42,18 +49,12 @@ def get_game_entry():
     while True:
         id = get_random_post()
         if id in vsid: continue
-        post = get_post(id)
+        post = try_repeat(get_post, [id], 10)
         tag = ''
         for i in range(10):
             tag = random.choice(post['tags'])
             if tag not in vstag: break
-        count = 0
-        for i in range(10):
-            try:
-                count = get_tag_count(tag)
-                break
-            except:
-                print(f"Error getting tag '${tag}' count, retrying...")
+        count = try_repeat(get_tag_count, [tag], 10)
                 
         return jsonify({
             'id': id,
