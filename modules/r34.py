@@ -14,7 +14,7 @@ def get_post(post_id):
     data = r.json()[0]
     source = list(filter(lambda x: validators.url(x), data['source'].split(' ')))
     return {
-        'image': data['sample_url'],
+        'image': data['preview_url'],
         'tags': data['tags'].split(' '),
         'source': source,
         'url': f'https://rule34.xxx/index.php?page=post&s=view&id={post_id}'
