@@ -76,7 +76,8 @@ def get_current_requests():
             rq += log[i]
     return jsonify({
         'requests': rq,
-        'cookies': request.cookies
+        'cookies': request.cookies,
+        'censor_on': request.cookies.get('stream-mode') == 'true' if request.cookies.get('stream-mode') != None else False
     })
 
 def setup(app):
