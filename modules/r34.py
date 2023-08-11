@@ -43,7 +43,6 @@ def get_game_entry():
     
     streamer_mode = request.cookies.get('stream-mode') == 'true' if request.cookies.get('stream-mode') != None else False
     
-    
     vstag = []
     vsid = []
     if request.method == 'POST':
@@ -76,7 +75,8 @@ def get_current_requests():
         if i > time.time() - 60:
             rq += log[i]
     return jsonify({
-        'requests': rq
+        'requests': rq,
+        'cookies': request.cookies
     })
 
 def setup(app):
