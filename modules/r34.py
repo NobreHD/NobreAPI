@@ -9,12 +9,13 @@ def get_random_post():
     r = scrape.get("https://rule34.xxx/index.php?page=post&s=random")
     return int(parse_qs(urlparse(r.url).query)["id"][0])
 
-def get_post(post_id):
+def get_post(post_id, streamer_mode):
     r = scrape.get(f'https://rule34.xxx/index.php?page=dapi&s=post&q=index&id={post_id}&json=1')
     data = r.json()[0]
     source = list(filter(lambda x: validators.url(x), data['source'].split(' ')))
+    image = data['preview_url'] if streamer_mode else data['file_url']
     return {
-        'image': data['preview_url'],
+        'image': image,
         'tags': data['tags'].split(' '),
         'source': source,
         'url': f'https://rule34.xxx/index.php?page=post&s=view&id={post_id}'
@@ -40,6 +41,8 @@ def get_game_entry():
     while list(log.keys())[0] < req_time - 60:
         del log[list(log.keys())[0]]
     
+    streamer_mode = request.cookies.get('streamer_mode') == 'true' if request.cookies.get('streamer_mode') != None else False
+    
     vstag = []
     vsid = []
     if request.method == 'POST':
@@ -49,7 +52,7 @@ def get_game_entry():
     while True:
         id = get_random_post()
         if id in vsid: continue
-        post = try_repeat(get_post, [id], 10)
+        post = try_repeat(get_post, [id, streamer_mode], 10)
         if post.get('tags') == None: continue
         tag = ''
         for i in range(10):
