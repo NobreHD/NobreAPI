@@ -13,7 +13,8 @@ def get_post(post_id, streamer_mode):
     r = scrape.get(f'https://rule34.xxx/index.php?page=dapi&s=post&q=index&id={post_id}&json=1')
     data = r.json()[0]
     source = list(filter(lambda x: validators.url(x), data['source'].split(' ')))
-    image = data['preview_url'] if streamer_mode else data['file_url']
+    image = data['preview_url'] if streamer_mode else data['sample_url']
+    print(image)
     return {
         'image': image,
         'tags': data['tags'].split(' '),
@@ -75,9 +76,7 @@ def get_current_requests():
         if i > time.time() - 60:
             rq += log[i]
     return jsonify({
-        'requests': rq,
-        'cookies': request.cookies,
-        'censor_on': request.cookies.get('stream-mode') == 'true' if request.cookies.get('stream-mode') != None else False
+        'requests': rq
     })
 
 def setup(app):
