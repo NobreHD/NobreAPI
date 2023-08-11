@@ -42,14 +42,15 @@ def get_game_entry():
     while list(log.keys())[0] < req_time - 60:
         del log[list(log.keys())[0]]
     
-    streamer_mode = request.cookies.get('stream-mode') == 'true' if request.cookies.get('stream-mode') != None else False
     
     vstag = []
     vsid = []
+    streamer_mode = False
     if request.method == 'POST':
         data = request.get_json()
         vstag = data['tags'] if data.get('tags') != None else []
         vsid = data['ids'] if data.get('ids') != None else []
+        streamer_mode = data['streamer_mode'] if data.get('streamer_mode') != None else False
     while True:
         id = get_random_post()
         if id in vsid: continue
