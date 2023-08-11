@@ -41,7 +41,8 @@ def get_game_entry():
     while list(log.keys())[0] < req_time - 60:
         del log[list(log.keys())[0]]
     
-    streamer_mode = request.cookies.get('streamer_mode') == 'true' if request.cookies.get('streamer_mode') != None else False
+    streamer_mode = request.cookies.get('stream-mode') == 'true' if request.cookies.get('stream-mode') != None else False
+    
     
     vstag = []
     vsid = []
