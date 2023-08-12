@@ -14,7 +14,6 @@ def get_post(post_id, streamer_mode):
     data = r.json()[0]
     source = list(filter(lambda x: validators.url(x), data['source'].split(' ')))
     image = data['preview_url'] if streamer_mode else data['sample_url']
-    print(image)
     return {
         'image': image,
         'tags': data['tags'].split(' '),
@@ -30,7 +29,8 @@ def try_repeat(func, args, times):
     for i in range(times):
         try:
             return func(*args)
-        except:
+        except Exception as e:
+            print(e.with_traceback())
             print(f"Error executing function '${func.__name__}', retrying...")
 
 def get_game_entry():
