@@ -1,5 +1,6 @@
-/.env
-/__pycache__
-/modules/__pycache__/
-/extras
-/data/count.txt
+.env
+__pycache__/
+modules/__pycache__/
+extras/
+data/count.txt
+env/
