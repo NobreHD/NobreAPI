@@ -24,7 +24,7 @@ def get_post_new(post_id):
     r = scrape.get(f'https://rule34.xxx/index.php?page=dapi&s=post&q=index&id={post_id}&json=1')
     data = r.json()[0]
     source = list(filter(lambda x: validators.url(x), data['source'].split(' ')))
-    source.insert(0, "https://rule34.xxx/index.php?page=post&s=view&id={post_id}")
+    source.insert(0, f"https://rule34.xxx/index.php?page=post&s=view&id={post_id}")
     return {
         'image': data['sample_url'],
         'censored': data['preview_url'],
