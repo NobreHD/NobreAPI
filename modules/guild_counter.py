@@ -80,4 +80,4 @@ def setup(app):
     app.add_url_rule('/discord/guild_counter', 'discord', discord)
     app.add_url_rule('/discord/guild_counter/count', 'send_count', send_count)
     count = get_count()
-    print("Discord Routes Loaded")
+    print("Discord Guild Counter Routes Loaded")
