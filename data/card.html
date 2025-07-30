@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Redirecting...</title>
+    <meta name="description" content="Twitter Card Bypass" />
     <meta property="og:url" content="{{ redirect }}" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ title }}" />
-    <meta property="og:image" content="{{ url}}" />
+    <meta property="og:image" content="{{ url }}" />
     <meta property="og:description" content="Twitter Card Bypass" />
     <meta property="og:locale" content="en" />  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:image" content="{{ url }}">
+
     <meta http-equiv="refresh" content="0; url={{ redirect }}" />
-    <title>Redirecting...</title>
   </head>
   <body>
     <p>If you&#39;re not redirected, <a href="{{ redirect }}">click here</a>.</p>

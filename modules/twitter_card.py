@@ -4,7 +4,7 @@ def card():
   url = request.args.get('url')
   if url is None:
     return "Missing URL", 400
-  title = request.args.get('title', '')
+  title = request.args.get('title', 'Twitter Card Bypass')
   redirect = request.args.get('redirect', "https://x.com/NobreHD")
   
   response = make_response(render_template('card.html', url=url, title=title, redirect=redirect))
