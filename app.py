@@ -12,10 +12,6 @@ def import_modules(app):
 
 app = Flask(__name__, template_folder='data')
 
-@app.route('/robots.txt')
-def robots():
-    return 'User-agent: *\nDisallow: /'
-
 @app.route('/')
 def index():
     return redirect("https://github.com/NobreHD/NobreAPI")
