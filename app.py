@@ -10,7 +10,7 @@ def import_modules(app):
             module = import_module(f'modules.{module_name}')
             module.setup(app)
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='data')
 
 @app.route('/robots.txt')
 def robots():
